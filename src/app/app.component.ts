@@ -12,13 +12,13 @@ import { Appuntamenti } from './mock-appuntamenti';
 export class AppComponent implements OnInit {
 
   myForm: FormGroup;
-  appuntamenti = Appuntamenti;
+  appuntamenti: Appuntamento[] = Appuntamenti;
   appuntamentoSelezionato: Appuntamento;
 
   constructor(fb: FormBuilder) {
     this.myForm = fb.group({
       'nome': ['Nome', Validators.required],
-      'email': ['Email', Validators.required],
+      'email': ['Email', [Validators.required, Validators.email]],
       'data': ['gg/mm/2019', Validators.required],
       'ora': ['Ora', Validators.required]
     });

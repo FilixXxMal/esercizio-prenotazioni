@@ -1,6 +1,6 @@
 <h2 class="text-center mt-3">INSERISCI I TUOI DATI</h2>
 <div class="ml-5 mr-5 mt-3 border border-primary rounded">
-  <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)" class="text-center p-3">
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="text-center p-3">
 
     <div class="form-row mb-4">
         <div class="col">
@@ -38,7 +38,8 @@
 <div class="w-50 text-center" style="margin: 50px auto">
   <h2>Elenco appuntamenti</h2>
   <ul class="list-group">
-    <li *ngFor="let appuntamento of appuntamenti" class="list-group-item text-center" [class.selected]="appuntamento === appuntamentoSelezionato" (click)="onSelect(appuntamento)">{{ appuntamento.data }} - {{ appuntamento.ora }} -> {{ appuntamento.nome }} {{ appuntamento.cognome }}</li>
+    <li *ngFor="let appuntamento of appuntamenti" class="list-group-item text-center"  (click)="onSelect(appuntamento)">
+      {{ appuntamento.data }} - {{ appuntamento.ora }} -> {{ appuntamento.nome }} {{ appuntamento.cognome }}</li>
   </ul>
   <app-view-prenotazione *ngIf="appuntamentoSelezionato" [appuntamento]="appuntamentoSelezionato"></app-view-prenotazione>
 </div>
